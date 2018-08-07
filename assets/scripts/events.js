@@ -36,10 +36,20 @@ const userLogout = function(event) {
     .catch(ui.logoutError)
 }
 
+const createInventoryItem = function(event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  api.createItem(data)
+    .then(ui.onCreateInventoryItemSuccess)
+    .catch(ui.onCreateInventoryError)
+  $("#create-form")[0].reset()
+}
+
 
 module.exports = {
   userLogin,
   userRegister,
   userPwChange,
-  userLogout
+  userLogout,
+  createInventoryItem
 }

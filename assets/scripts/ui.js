@@ -110,6 +110,18 @@ const logoutError = function(error) {
   }
 }
 
+const onCreateInventoryItemSuccess = function(data) {
+  $('.modal-body').html('')
+  $("#myModalLabel").html('Success!')
+  console.log(data)
+  const scoreHTML = (`
+      <h4>Item Added</h4>
+      <br>
+    `)
+  $(".modal-body").html(scoreHTML)
+  $("#myModal").modal('show')
+}
+
 module.exports = {
   onRegisterSuccess,
   onLoginSuccess,
@@ -118,5 +130,6 @@ module.exports = {
   onLogoutSuccess,
   logoutError,
   loginError,
-  registerError
+  registerError,
+  onCreateInventoryItemSuccess
 }

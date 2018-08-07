@@ -38,9 +38,27 @@ const logout = function() {
   })
 }
 
+const createItem = function(data) {
+  return $.ajax({
+    url: config.apiUrl + '/inventories',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      "inventory": {
+        "itemReference": `${data.itemReference}`,
+        "onhand": `${data.onhand}`,
+        "needed": `${data.needed}`
+      }
+    }
+  })
+}
+
 module.exports = {
   register,
   login,
   pwChange,
-  logout
+  logout,
+  createItem
 }
