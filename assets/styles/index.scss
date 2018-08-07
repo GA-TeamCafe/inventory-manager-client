@@ -1,2 +1,78 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+button {
+  background-color: #ccc;
+  border: none;
+  color: #1c1c1b;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 2%;
+}
+
+input[type=text] {
+  padding: 5px;
+  box-sizing: border-box;
+  margin: 5px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+
+input[type=password] {
+  padding: 5px;
+  box-sizing: border-box;
+  margin: 5px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+
+.user-dash {
+  display: none;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  // height: 10%;
+  background-color: grey;
+  padding: 1%;
+}
+
+.centered {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+#logoutbutton {
+  // background-color: #1c1c1b;
+  background-color: red;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 2% 2% 2% auto;
+}
+
+#pw-change-submit {
+  background-color: #1c1c1b;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline;
+  margin: 2% auto 2% 2%;
+}
+
+legend {
+  color: white;
+  text-align: center;
+  font-weight: 200;
+  background-color: #1c1c1b;
+  padding: 2%;
+}
