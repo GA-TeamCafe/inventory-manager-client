@@ -122,6 +122,20 @@ const onCreateInventoryItemSuccess = function(data) {
   $("#myModal").modal('show')
 }
 
+const onCreateInventoryError = function(error) {
+  if (error) {
+    $('.modal-body').html('')
+    $("#myModalLabel").html('Error')
+    const scoreHTML = (`
+        <h4>Oh no! Something Went Wrong!</h4>
+        <p>Try adding the item again</p>
+        <br>
+      `)
+    $(".modal-body").html(scoreHTML)
+    $("#myModal").modal('show')
+  }
+}
+
 module.exports = {
   onRegisterSuccess,
   onLoginSuccess,
@@ -131,5 +145,6 @@ module.exports = {
   logoutError,
   loginError,
   registerError,
-  onCreateInventoryItemSuccess
+  onCreateInventoryItemSuccess,
+  onCreateInventoryError
 }
