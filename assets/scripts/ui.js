@@ -208,7 +208,7 @@ const onSeeOneInventorySuccess = function(data) {
   $("#myModal").modal('show')
 }
 
-const onUpdateInventorySucces = function() {
+const onUpdateInventorySuccess = function() {
   $('.modal-body').html('')
   $("#myModalLabel").html('Success!')
   const scoreHTML = (`
@@ -245,6 +245,6 @@ module.exports = {
   onGetInventorySuccess,
   getInventoryError,
   onSeeOneInventorySuccess,
-  onUpdateInventorySucces,
+  onUpdateInventorySuccess,
   onDeleteInventorySuccess
 }
