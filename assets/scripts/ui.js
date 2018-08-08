@@ -186,8 +186,8 @@ const onGetInventorySuccess = function(data) {
       <br>
     `)
     $(".modal-body").append(scoreHTML)
-    $("#myModal").modal('show')
   })
+  $("#myModal").modal('show')
 }
 
 const onSeeOneInventorySuccess = function(data) {
