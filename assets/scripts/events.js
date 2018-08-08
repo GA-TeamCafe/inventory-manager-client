@@ -53,6 +53,15 @@ const seeInventoryItems = function(event) {
   $("#index-form")[0].reset()
 }
 
+const seeOneInventoryItem = function(event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  api.seeOneInventoryItem(data)
+    .then(ui.onSeeOneInventorySuccess)
+    .catch(ui.updateInventoryError)
+  $("#see-one-form")[0].reset()
+}
+
 const updateInventoryItem = function(event) {
   event.preventDefault()
   const data = getFormFields(this)
@@ -70,5 +79,6 @@ module.exports = {
   userLogout,
   createInventoryItem,
   seeInventoryItems,
+  seeOneInventoryItem,
   updateInventoryItem
 }

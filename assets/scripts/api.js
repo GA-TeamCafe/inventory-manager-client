@@ -65,6 +65,17 @@ const getInventoryItems = function() {
   })
 }
 
+const seeOneInventoryItem = function (data) {
+  console.log(data)
+  return $.ajax({
+    url: config.apiUrl + '/inventories/' + data.id,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 const updateInventoryItem = function (data) {
   console.log(data)
   return $.ajax({
@@ -89,5 +100,6 @@ module.exports = {
   logout,
   createItem,
   getInventoryItems,
+  seeOneInventoryItem,
   updateInventoryItem
 }

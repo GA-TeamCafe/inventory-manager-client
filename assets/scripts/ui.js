@@ -170,6 +170,24 @@ const onGetInventorySuccess = function(data) {
   })
 }
 
+const onSeeOneInventorySuccess = function(data) {
+  $('.modal-body').html('')
+  $("#myModalLabel").html('Success!')
+  // data.inventory
+  console.log(data.inventory)
+  const scoreHTML = (`
+      <h4>Inventory Item</h4>
+      <br>
+      <p>Name: ${data.inventory._id}</p>
+      <p>Name: ${data.inventory.itemReference.name}</p>
+      <p>Quantity on Hand: ${data.inventory.onhand}</p>
+      <p>Quantity Needed: ${data.inventory.needed}</p>
+      <br>
+    `)
+  $(".modal-body").html(scoreHTML)
+  $("#myModal").modal('show')
+}
+
 const onUpdateInventorySucces = function() {
   $('.modal-body').html('')
   $("#myModalLabel").html('Success!')
@@ -194,5 +212,6 @@ module.exports = {
   onCreateInventoryError,
   onGetInventorySuccess,
   getInventoryError,
+  onSeeOneInventorySuccess,
   onUpdateInventorySucces
 }
