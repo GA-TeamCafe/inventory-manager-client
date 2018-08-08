@@ -55,6 +55,16 @@ const createItem = function(data) {
   })
 }
 
+const getWarehouseItems = function() {
+  return $.ajax({
+    url: config.apiUrl + '/items',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 const getInventoryItems = function() {
   return $.ajax({
     url: config.apiUrl + '/inventories',
@@ -110,6 +120,7 @@ module.exports = {
   pwChange,
   logout,
   createItem,
+  getWarehouseItems,
   getInventoryItems,
   seeOneInventoryItem,
   updateInventoryItem,
