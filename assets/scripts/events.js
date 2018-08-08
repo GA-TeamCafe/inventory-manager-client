@@ -45,11 +45,20 @@ const createInventoryItem = function(event) {
   $("#create-form")[0].reset()
 }
 
+const seeInventoryItems = function(event) {
+  event.preventDefault()
+  api.getInventoryItems()
+    .then(ui.onGetInventorySuccess)
+    .catch(ui.getInventoryError)
+  $("#create-form")[0].reset()
+}
+
 
 module.exports = {
   userLogin,
   userRegister,
   userPwChange,
   userLogout,
-  createInventoryItem
+  createInventoryItem,
+  seeInventoryItems
 }

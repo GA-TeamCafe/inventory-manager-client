@@ -136,6 +136,26 @@ const onCreateInventoryError = function(error) {
   }
 }
 
+const onGetInventorySuccess = function(data) {
+  $('.modal-body').html('')
+  $("#myModalLabel").html('Success!')
+  console.log(data)
+  // loop through API data
+  data.inventories.forEach(inventory => {
+    // build HTML element with data
+    const scoreHTML = (`
+      <h4>All Inventory</h4>
+      <p>Name: ${inventory._id}</p>
+      <p>Name: ${inventory.itemReference.name}</p>
+      <p>Quantity on Hand: ${inventory.onhand}</p>
+      <p>Quantity Needed: ${inventory.needed}</p>
+      <br>
+    `)
+    $(".modal-body").append(scoreHTML)
+    $("#myModal").modal('show')
+  })
+}
+
 module.exports = {
   onRegisterSuccess,
   onLoginSuccess,
@@ -146,5 +166,6 @@ module.exports = {
   loginError,
   registerError,
   onCreateInventoryItemSuccess,
-  onCreateInventoryError
+  onCreateInventoryError,
+  onGetInventorySuccess
 }

@@ -55,10 +55,21 @@ const createItem = function(data) {
   })
 }
 
+const getInventoryItems = function() {
+  return $.ajax({
+    url: config.apiUrl + '/inventories',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   register,
   login,
   pwChange,
   logout,
-  createItem
+  createItem,
+  getInventoryItems
 }
