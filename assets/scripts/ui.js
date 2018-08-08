@@ -14,6 +14,7 @@ const onLoginSuccess = function(data) {
   $(".form2").css("display", "none")
   $(".form1").css("display", "none")
   $(".user-dash").css("display", "flex")
+  $(".flex-container").css("display", "flex")
   store.user = data.user
 }
 
@@ -94,6 +95,7 @@ const onLogoutSuccess = function() {
   $(".user-dash").css("display", "none")
   $(".form1").css("display", "flex")
   $(".form2").css("display", "flex")
+  $(".flex-container").css("display", "none")
 }
 
 const logoutError = function(error) {
