@@ -65,11 +65,29 @@ const getInventoryItems = function() {
   })
 }
 
+const updateInventoryItem = function (data) {
+  console.log(data)
+  return $.ajax({
+    url: config.apiUrl + '/inventories/' + data.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      "inventory": {
+        "onhand": `${data.onhand}`,
+        "needed": `${data.needed}`
+      }
+    }
+  })
+}
+
 module.exports = {
   register,
   login,
   pwChange,
   logout,
   createItem,
-  getInventoryItems
+  getInventoryItems,
+  updateInventoryItem
 }

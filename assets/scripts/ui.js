@@ -136,6 +136,20 @@ const onCreateInventoryError = function(error) {
   }
 }
 
+const getInventoryError = function(error) {
+  if (error) {
+    $('.modal-body').html('')
+    $("#myModalLabel").html('Error')
+    const scoreHTML = (`
+        <h4>Oh no! Something Went Wrong!</h4>
+        <p>Try again</p>
+        <br>
+      `)
+    $(".modal-body").html(scoreHTML)
+    $("#myModal").modal('show')
+  }
+}
+
 const onGetInventorySuccess = function(data) {
   $('.modal-body').html('')
   $("#myModalLabel").html('Success!')
@@ -156,6 +170,17 @@ const onGetInventorySuccess = function(data) {
   })
 }
 
+const onUpdateInventorySucces = function() {
+  $('.modal-body').html('')
+  $("#myModalLabel").html('Success!')
+  const scoreHTML = (`
+      <h4>Item Updated</h4>
+      <br>
+    `)
+  $(".modal-body").html(scoreHTML)
+  $("#myModal").modal('show')
+}
+
 module.exports = {
   onRegisterSuccess,
   onLoginSuccess,
@@ -167,5 +192,7 @@ module.exports = {
   registerError,
   onCreateInventoryItemSuccess,
   onCreateInventoryError,
-  onGetInventorySuccess
+  onGetInventorySuccess,
+  getInventoryError,
+  onUpdateInventorySucces
 }

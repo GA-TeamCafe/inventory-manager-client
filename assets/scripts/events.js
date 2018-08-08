@@ -50,7 +50,16 @@ const seeInventoryItems = function(event) {
   api.getInventoryItems()
     .then(ui.onGetInventorySuccess)
     .catch(ui.getInventoryError)
-  $("#create-form")[0].reset()
+  $("#index-form")[0].reset()
+}
+
+const updateInventoryItem = function(event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  api.updateInventoryItem(data)
+    .then(ui.onUpdateInventorySuccess)
+    .catch(ui.updateInventoryError)
+  $("#update-form")[0].reset()
 }
 
 
@@ -60,5 +69,6 @@ module.exports = {
   userPwChange,
   userLogout,
   createInventoryItem,
-  seeInventoryItems
+  seeInventoryItems,
+  updateInventoryItem
 }
