@@ -93,6 +93,17 @@ const updateInventoryItem = function (data) {
   })
 }
 
+const deleteInventoryItem = function (data) {
+  console.log(data)
+  return $.ajax({
+    url: config.apiUrl + '/inventories/' + data.id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   register,
   login,
@@ -101,5 +112,6 @@ module.exports = {
   createItem,
   getInventoryItems,
   seeOneInventoryItem,
-  updateInventoryItem
+  updateInventoryItem,
+  deleteInventoryItem
 }

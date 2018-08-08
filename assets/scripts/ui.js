@@ -199,6 +199,17 @@ const onUpdateInventorySucces = function() {
   $("#myModal").modal('show')
 }
 
+const onDeleteInventorySuccess = function() {
+  $('.modal-body').html('')
+  $("#myModalLabel").html('Success!')
+  const scoreHTML = (`
+      <h4>Item Deleted Successfully!</h4>
+      <br>
+    `)
+  $(".modal-body").html(scoreHTML)
+  $("#myModal").modal('show')
+}
+
 module.exports = {
   onRegisterSuccess,
   onLoginSuccess,
@@ -213,5 +224,6 @@ module.exports = {
   onGetInventorySuccess,
   getInventoryError,
   onSeeOneInventorySuccess,
-  onUpdateInventorySucces
+  onUpdateInventorySucces,
+  onDeleteInventorySuccess
 }

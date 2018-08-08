@@ -71,6 +71,15 @@ const updateInventoryItem = function(event) {
   $("#update-form")[0].reset()
 }
 
+const deleteInventoryItem = function(event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  api.deleteInventoryItem(data)
+    .then(ui.onDeleteInventorySuccess)
+    .catch(ui.updateInventoryError)
+  $("#delete-form")[0].reset()
+}
+
 
 module.exports = {
   userLogin,
@@ -80,5 +89,6 @@ module.exports = {
   createInventoryItem,
   seeInventoryItems,
   seeOneInventoryItem,
-  updateInventoryItem
+  updateInventoryItem,
+  deleteInventoryItem
 }
