@@ -36,10 +36,59 @@ const userLogout = function(event) {
     .catch(ui.logoutError)
 }
 
+const createInventoryItem = function(event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  api.createItem(data)
+    .then(ui.onCreateInventoryItemSuccess)
+    .catch(ui.onCreateInventoryError)
+  $("#create-form")[0].reset()
+}
+
+const seeInventoryItems = function(event) {
+  event.preventDefault()
+  api.getInventoryItems()
+    .then(ui.onGetInventorySuccess)
+    .catch(ui.getInventoryError)
+  $("#index-form")[0].reset()
+}
+
+const seeOneInventoryItem = function(event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  api.seeOneInventoryItem(data)
+    .then(ui.onSeeOneInventorySuccess)
+    .catch(ui.updateInventoryError)
+  $("#see-one-form")[0].reset()
+}
+
+const updateInventoryItem = function(event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  api.updateInventoryItem(data)
+    .then(ui.onUpdateInventorySuccess)
+    .catch(ui.updateInventoryError)
+  $("#update-form")[0].reset()
+}
+
+const deleteInventoryItem = function(event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  api.deleteInventoryItem(data)
+    .then(ui.onDeleteInventorySuccess)
+    .catch(ui.updateInventoryError)
+  $("#delete-form")[0].reset()
+}
+
 
 module.exports = {
   userLogin,
   userRegister,
   userPwChange,
-  userLogout
+  userLogout,
+  createInventoryItem,
+  seeInventoryItems,
+  seeOneInventoryItem,
+  updateInventoryItem,
+  deleteInventoryItem
 }
