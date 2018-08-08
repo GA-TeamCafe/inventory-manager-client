@@ -150,6 +150,26 @@ const getInventoryError = function(error) {
   }
 }
 
+const onGetWarehouseSuccess = function(data) {
+  $('.modal-body').html('')
+  $("#myModalLabel").html('Success!')
+  console.log(data.items)
+  // loop through API data
+  data.items.forEach(item => {
+    // build HTML element with data
+    const scoreHTML = (`
+      <h4>All Inventory</h4>
+      <p>Name: ${item._id}</p>
+      <p>Name: ${item.name}</p>
+      <p>Quantity on Hand: ${item.description}</p>
+      <p>Quantity Needed: ${item.price}</p>
+      <br>
+    `)
+    $(".modal-body").append(scoreHTML)
+    $("#myModal").modal('show')
+  })
+}
+
 const onGetInventorySuccess = function(data) {
   $('.modal-body').html('')
   $("#myModalLabel").html('Success!')
@@ -221,6 +241,7 @@ module.exports = {
   registerError,
   onCreateInventoryItemSuccess,
   onCreateInventoryError,
+  onGetWarehouseSuccess,
   onGetInventorySuccess,
   getInventoryError,
   onSeeOneInventorySuccess,
