@@ -88,7 +88,6 @@ const deleteInventoryItem = function(event) {
   $("#delete-form")[0].reset()
 }
 
-
 module.exports = {
   userLogin,
   userRegister,
