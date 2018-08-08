@@ -46,6 +46,18 @@ input[type=password] {
   flex-wrap: wrap;
 }
 
+.flex-container {
+  display: none;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.flex-item {
+  padding: 5%;
+  box-sizing: border-box;
+}
+
 #logoutbutton {
   // background-color: #1c1c1b;
   background-color: red;
