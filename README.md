@@ -1,74 +1,61 @@
-[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
+# Inventory Management App
 
-# browser-template
+###### Project Three from General Assembly's Web Development Immersive Class - Providence
 
-A template for starting front-end projects. Webpack for `require` system, build
-pipeline, and development server. Boostrap and Handlebars.js included. No
-front-end frameworks included.
+**GA-Team Cafe Members:**
 
-## Installation
+Aleks Sarnicka, https://github.com/sarnickaa
 
-1. [Download](../../archive/master.zip) this template.
-1. Move to the `wdi/projects` directory, then unzip the template directory with
-    `unzip /Users/<user-name>/Downloads/browser-template-master.zip`.
-1. Rename the template directory from `browser-template-master` to
-    `<project-name>-client`.
-1. Empty [`README.md`](README.md) and fill with your own content.
-1. Replace all instances of `inventory-manager-client` with the name of
-    your project.
-1. Move into the new project and `git init`.
-1. Add all of the files in your project with the command `git add --all`.
-      - **Note: This is the only time you should run this command!**
-1. Commit all of your files with the command `git commit`.
-      - Your commit title should read `Initial commit`.
-1. Install dependencies with `npm install`.
-1. Create a new repository on [github.com](https://github.com),
-    _not GitHub Enterprise_.
-1. Name the new repository with the same name used on Step 3.
+Beatriz Ortiz, https://github.com/beatrizelena
 
-## Structure
+Michael McGown, https://github.com/mrmcgown
 
-Developers should store JavaScript files in [`assets/scripts`](assets/scripts).
-The "manifest" or entry-point is
-[`assets/scripts/index.js`](assets/scripts/index.js). In general, only
-application initialization goes in this file. It's normal for developers to
-start putting all code in this file, but encourage them to break out different
-responsibilities and use the `require` syntax put references where they're
-needed.
 
-Developers should set `apiUrls.production` and `apiUrls.development` in
-[`config/environment.js`](config/environment.js).  With
-`apiUrls` set, developers may rely on `apiUrl` as the base for API
-URLs.
 
-Developers should store styles in [`assets/styles`](assets/styles) and load them
-from [`assets/styles/index.scss`](assets/styles/index.scss). Bootstrap version 3 is
-included in this template.
+| Code and Deployment Information | URLs                                                    |
+| ------------------------------- | ------------------------------------------------------- |
+| Deployed Site                   |                                                         |
+| API code                        | https://github.com/GA-TeamCafe/inventory-manager-api    |
+| Front End Code                  | https://github.com/GA-TeamCafe/inventory-manager-client |
 
-Developers should use [getFormFields](get-form-fields.md) to retrieve form data
-to send to an API.
+###### Overview
 
-To deploy a browser-template based SPA, run `grunt deploy`.
+The GA-Team Cafe created a backend API and frontend client that allows an user to create an inventory, populate it with items selected from the warehouse collection, and track:
 
-## Tasks
+- Quantity of product onhand
+- Quantity of product needed
 
-Developers should run these often!
+The tracking is done through a unique identifier that links the manufacturer's collection with the inventory management system's collection for each user.
 
-- `grunt nag` or just `grunt`: runs code quality analysis tools on your code
-    and complains
-- `grunt make-standard`: reformats all your code in the JavaScript Standard Style
-- `grunt <server|serve|s>`: generates bundles, watches, and livereloads
-- `grunt test`: runs any automated tests, depends on `grunt build`
-- `grunt build`: place bundled styles and scripts where `index.html` can find
-    them
+The app is secure in that it only allows signed in users to view the manufacturer's collection. In addition, each user can only access and edit the resources she created in the inventory management collection.
 
-## Additional Resources
+###### Technologies Used
 
-- [Modern Javascript Explained for Dinosaurs](https://medium.com/@peterxjang/modern-javascript-explained-for-dinosaurs-f695e9747b70)
-- [Making Sense of Front End Build Tools](https://medium.freecodecamp.org/making-sense-of-front-end-build-tools-3a1b3a87043b)
+- Express and Node Js
+- MongoDB and Mongoose
+- JavaScript
+- jQuery
+- HTML5
+- SCSS
+- Bootstrap
 
-## [License](LICENSE)
 
-1. All content is licensed under a CC­BY­NC­SA 4.0 license.
-1. All software code is licensed under GNU GPLv3. For commercial use or
-    alternative licensing, please contact legal@ga.co.
+
+###### Process
+
+The team engaged in a planning process that included [wireframing](/Users/beatriz/wdi/projects/project3/inventory-manager-client/assets/images/IMS-wireframe.jpg), [user stories and ERDs](/Users/beatriz/wdi/projects/project3/inventory-manager-client/assets/images/ERD-UserStories.JPG). We agreed to have Aleks be the Scrum Master and to use Trello and Jira as Project Management Tools and to use Slack as a communication tool. For version control we used Git and Github and created a `dev` branch into which all our feature branches were merged. Pull requests and merges were never done by the same team member who initiated the pull request. This process kept Git conflicts to a minimum.
+
+Our schedule was guided by the suggestions made in the schedule.md file shared by the General Assembly instructors. It included  a day of planning and of setting up the API and client repos, both locally and on Github. We also created and deployed the Heroku app.
+
+Troubleshooting and debugging was done with console.log statements, reading and investigating the error messages from the Chrome console and from the API server. We often resolved these problems as a team and with the help of Google searches. When we could not, we used the Issue Queue and obtained help from GA instructors.
+
+
+
+###### Features we would like to add to the Backend
+
+- Ability to use Passport or another package to strengthen our user authentication so only people with certain e-mails are allowed to register as users.
+
+- Ability to attach a barcode to our items.
+
+  
+
