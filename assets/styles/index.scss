@@ -15,6 +15,31 @@ body {
 //   background-position: center;
 // }
 
+div#table {
+  display: table;
+  width: 100%;
+  // table-layout: fixed;
+  font-size: 1.25vw;
+  text-align: center
+}
+
+div.tr {
+  display: table-row;
+  padding: 0.5em;
+}
+
+span.th {
+  font-weight: bold;
+  border: 1px solid black;
+  display: table-cell;
+}
+
+span.td {
+  border: 1px solid black;
+  display: table-cell;
+  padding: 0.5em;
+}
+
 button {
   background-color: #ccc;
   border: none;

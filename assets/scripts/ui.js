@@ -1,6 +1,5 @@
 const store = require('./store.js')
 
-
 const onLoginSuccess = function(data) {
   $('.modal-body').html('')
   $("#myModalLabel").html('Success!')
@@ -159,16 +158,38 @@ const onGetWarehouseSuccess = function(data) {
   $("#myModalLabel").html('Success!')
   console.log(data.items)
   // loop through API data
+  const scoreHTMLHeaders = (`
+  <div id="table">
+    <div class="tr">
+      <span class="th">ID</span>
+      <span class="th">Name</span>
+      <span class="th">Description</span>
+      <span class="th">Price</span>
+    </div>
+  </div>
+  `)
+
+  $(".modal-body").append(scoreHTMLHeaders)
+
   data.items.forEach(item => {
     // build HTML element with data
     const scoreHTML = (`
-      <p>ID: ${item._id}</p>
-      <p>Name: ${item.name}</p>
-      <p>Description: ${item.description}</p>
-      <p>Price: $${item.price}</p>
-      <br>
+      <div class="tr" data-id=${item._id}>
+        <span class="td">
+          ${item._id}
+        </span>
+        <span class="td">
+          ${item.name}
+        </span>
+        <span class="td">
+          ${item.description}
+        </span>
+        <span class="td">
+          $${item.price}
+        </span>
+      </div>
     `)
-    $(".modal-body").append(scoreHTML)
+    $("#table").append(scoreHTML)
     $("#myModal").modal('show')
   })
 }
