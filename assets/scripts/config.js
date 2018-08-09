@@ -2,7 +2,7 @@
 
 let apiUrl
 const apiUrls = {
-  production: 'https://ga-inventory-manager.herokuapp.com/',
+  production: 'https://ga-inventory-manager.herokuapp.com',
   development: 'http://localhost:4741'
 }
 
