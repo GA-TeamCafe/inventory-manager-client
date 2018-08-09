@@ -13,6 +13,10 @@
     </head>
     <body>
 
+      <div id="image">
+  <img src="public/logo1.png" width="300">
+</div>
+
     <div class="centered">
       <div class="form1">
     <form id="register-form" class="register-form-class">
@@ -41,6 +45,10 @@
 
   <div class="user-dash">
     <div class="dashdiv">
+    <img src="public/logo1.png" width="75">
+  </div>
+
+    <div class="dashdiv">
     <form id="change-pw-form" class="form-inline">
       <input id="pw-change" name="passwords[old]" type="password" placeholder="old password">
       <input id="pw-change-conf" name="passwords[new]" type="password" placeholder="new password">
@@ -58,23 +66,23 @@
 <div class="flex-container">
   <div class="flex-item">
     <form id="index-items-form" class="index-items-form-class">
-    <legend>See All Warehouse Items</legend>
-    <button id="index-items" type="submit">See All Warehouse Items</button>
+    <legend>See Warehouse Items</legend>
+    <button id="index-items" type="submit">View All</button>
   </form>
   </div>
 
   <div class="flex-item">
   <form id="index-form" class="index-form-class">
-  <legend>See All Inventory Items</legend>
-  <button id="index" type="submit">See All Inventory</button>
+  <legend>See My Inventory</legend>
+  <button id="index" type="submit">View All</button>
 </form>
 </div>
 
 <!-- <div class="ims-actions"> -->
   <div class="flex-item">
     <form id="create-form" class="create-form-class">
-    <legend>Add New Item to Inventory</legend>
-    <input id="create-item" name="itemReference" type="text" placeholder="item id">
+    <legend>Add Item to Inventory</legend>
+    <input id="create-item" name="itemReference" type="text" placeholder="warehouse item id">
     <br />
     <input id="onhand" name="onhand" type="text" placeholder="quantity in stock">
     <input id="needed" name="needed" type="text" placeholder="quantity needed">
@@ -85,17 +93,17 @@
 
   <div class="flex-item">
     <form id="see-one-form" class="see-one-form-class">
-    <legend>See One Inventory Item</legend>
-    <input id="see-one-item" name="id" type="text" placeholder="item id">
+    <legend>See Inventory Item</legend>
+    <input id="see-one-item" name="id" type="text" placeholder="inventory id">
     <br />
-    <button id="see-one" type="submit">See One Item</button>
+    <button id="see-one" type="submit">View</button>
   </form>
   </div>
 
   <div class="flex-item">
     <form id="update-form" class="update-form-class">
     <legend>Update Inventory Item</legend>
-    <input id="update-item" name="id" type="text" placeholder="item id">
+    <input id="update-item" name="id" type="text" placeholder="inventory id">
     <br />
     <input id="onhand-update" name="onhand" type="text" placeholder="quantity in stock">
     <input id="needed-update" name="needed" type="text" placeholder="quantity needed">
@@ -109,7 +117,7 @@
     <legend>Delete Inventory Item</legend>
     <input id="delete-item" name="id" type="text" placeholder="item id">
     <br />
-    <button id="delete" type="submit">Delete This Item</button>
+    <button id="delete" type="submit">Delete</button>
   </form>
   </div>
 
@@ -127,6 +135,9 @@
         </div>
         <div class="modal-body">
         </div>
+        <!-- <svg id="barcode"></svg>
+        <canvas id="canvas"></canvas> -->
+        <!-- <img id="barcode"/> -->
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
