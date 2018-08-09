@@ -1,6 +1,20 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+body {
+    height: 100%;
+    background: linear-gradient(90deg, #e0e1dc 50%, #f7f960 50%);
+}
+
+// body,
+// html {
+//   height: 100%;
+//   background-image: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/4n_Ch8s0eimm1i8wy/videoblocks-warehouse-area-motion-graphics-hologram-element-with-statistics-camera-movement-along-the-warehouse-with-boxes-on-a-blurred-background_hpjflkzne_thumbnail-full01.png");
+//   background-repeat: no-repeat;
+//   background-attachment: fixed;
+//   background-position: center;
+// }
+
 button {
   background-color: #ccc;
   border: none;
@@ -28,14 +42,40 @@ input[type=password] {
   border: 1px solid #ccc;
 }
 
+input[type=email] {
+  padding: 5px;
+  box-sizing: border-box;
+  margin: 5px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+
+#image {
+  margin-top: 2%;
+  margin-bottom: 5%;
+  display: block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form1,
+.form2 {
+  background: #ffffff;
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  margin: 2%;
+  padding: 1%;
+}
+
 .user-dash {
   display: none;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   // height: 10%;
-  background-color: grey;
+  background-color: #e0e1dc;
   padding: 1%;
 }
 
@@ -54,8 +94,11 @@ input[type=password] {
 }
 
 .flex-item {
-  padding: 5%;
+  padding: 2%;
   box-sizing: border-box;
+  background: #ffffff;
+  margin: 2%;
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
 }
 
 #logoutbutton {

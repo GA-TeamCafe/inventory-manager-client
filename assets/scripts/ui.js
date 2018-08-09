@@ -15,6 +15,7 @@ const onLoginSuccess = function(data) {
   $(".form1").css("display", "none")
   $(".user-dash").css("display", "flex")
   $(".flex-container").css("display", "flex")
+  $("#image").css("display", "none")
   store.user = data.user
 }
 
@@ -96,6 +97,7 @@ const onLogoutSuccess = function() {
   $(".form1").css("display", "flex")
   $(".form2").css("display", "flex")
   $(".flex-container").css("display", "none")
+  $("#image").css("display", "block")
 }
 
 const logoutError = function(error) {
@@ -117,7 +119,7 @@ const onCreateInventoryItemSuccess = function(data) {
   $("#myModalLabel").html('Success!')
   console.log(data)
   const scoreHTML = (`
-      <h4>Item Added</h4>
+      <h4>Created Inventory Item</h4>
       <br>
     `)
   $(".modal-body").html(scoreHTML)
@@ -160,11 +162,10 @@ const onGetWarehouseSuccess = function(data) {
   data.items.forEach(item => {
     // build HTML element with data
     const scoreHTML = (`
-      <h4>All Inventory</h4>
-      <p>Name: ${item._id}</p>
+      <p>ID: ${item._id}</p>
       <p>Name: ${item.name}</p>
-      <p>Quantity on Hand: ${item.description}</p>
-      <p>Quantity Needed: ${item.price}</p>
+      <p>Description: ${item.description}</p>
+      <p>Price: $${item.price}</p>
       <br>
     `)
     $(".modal-body").append(scoreHTML)
@@ -180,9 +181,10 @@ const onGetInventorySuccess = function(data) {
   data.inventories.forEach(inventory => {
     // build HTML element with data
     const scoreHTML = (`
-      <h4>All Inventory</h4>
-      <p>Name: ${inventory._id}</p>
-      <p>Name: ${inventory.itemReference.name}</p>
+      <p>Inventory Item ID: ${inventory._id}</p>
+      <p>Product Manufacturer ID: ${inventory.itemReference._id}</p>
+      <p>Product Name: ${inventory.itemReference.name}</p>
+      <p>Product Price: $${inventory.itemReference.price}</p>
       <p>Quantity on Hand: ${inventory.onhand}</p>
       <p>Quantity Needed: ${inventory.needed}</p>
       <br>
@@ -200,8 +202,10 @@ const onSeeOneInventorySuccess = function(data) {
   const scoreHTML = (`
       <h4>Inventory Item</h4>
       <br>
-      <p>Name: ${data.inventory._id}</p>
+      <p>Inventory Item ID: ${data.inventory._id}</p>
+      <p>Product Manufacturer ID: ${data.inventory.itemReference._id}</p>
       <p>Name: ${data.inventory.itemReference.name}</p>
+      <p>Product Price: $${data.inventory.itemReference.price}</p>
       <p>Quantity on Hand: ${data.inventory.onhand}</p>
       <p>Quantity Needed: ${data.inventory.needed}</p>
       <br>
@@ -214,8 +218,7 @@ const onUpdateInventorySuccess = function() {
   $('.modal-body').html('')
   $("#myModalLabel").html('Success!')
   const scoreHTML = (`
-      <h4>Item Updated</h4>
-      <br>
+    <h4>Updated Inventory Item!</h4>
     `)
   $(".modal-body").html(scoreHTML)
   $("#myModal").modal('show')
