@@ -23,10 +23,10 @@ const loginError = function(error) {
   $('.modal-body').html('')
   $("#myModalLabel").html('Error')
   const scoreHTML = (`
-        <h4>Oh no! Something Went Wrong!</h4>
-        <p>Try logging in again</p>
-        <br>
-      `)
+    <h4>Oh no! Something Went Wrong!</h4>
+    <p>Try logging in again</p>
+    <br>
+  `)
   $(".modal-body").html(scoreHTML)
   $("#myModal").modal('show')
 }
@@ -114,41 +114,26 @@ const logoutError = function(error) {
   }
 }
 
-	const onCreateInventoryItemSuccess = function(data) {
-    $('.modal-body2').html('')
-    JsBarcode("#barcode2", `${data.inventory._id}`, {
-        width: 1,
-        height: 40,
-        margin: 8,
-        lineColor: "#333231",
-        font: "monospace",
-        fontSize: 16
-    })
-    $("#myModalLabel2").html('Success!')
-    console.log(data)
-    const scoreHTML = (`
-        <h4>Created Inventory Entry</h4>
-        <p>Inventory Reference Code Is:</p>
-      `)
-    $(".modal-body2").html(scoreHTML)
-    $("#myModal2").modal('show')
-  }
-
-const onCreateInventoryError = function(error) {
-  if (error) {
-    $('.modal-body').html('')
-    $("#myModalLabel").html('Error')
-    const scoreHTML = (`
-        <h4>Oh no! Something Went Wrong!</h4>
-        <p>Try adding the item again</p>
-        <br>
-      `)
-    $(".modal-body").html(scoreHTML)
-    $("#myModal").modal('show')
-  }
+const onCreateInventoryItemSuccess = function (data) {
+  $('.modal-body2').html('')
+  JsBarcode("#barcode2", `${data.inventory._id}`, {
+    width: 1,
+    height: 40,
+    margin: 8,
+    lineColor: "#333231",
+    font: "monospace",
+    fontSize: 16
+  })
+  $("#myModalLabel2").html('Success!')
+  const scoreHTML = (`
+      <h4>Created Inventory Entry</h4>
+      <p>Inventory Reference Code Is:</p>
+    `)
+  $(".modal-body2").html(scoreHTML)
+  $("#myModal2").modal('show')
 }
 
-const getInventoryError = function(error) {
+const onCreateInventoryError = function (error) {
   if (error) {
     $('.modal-body').html('')
     $("#myModalLabel").html('Error')
@@ -162,10 +147,23 @@ const getInventoryError = function(error) {
   }
 }
 
-const onGetWarehouseSuccess = function(data) {
+const getInventoryError = function (error) {
+  if (error) {
+    $('.modal-body').html('')
+    $("#myModalLabel").html('Error')
+    const scoreHTML = (`
+        <h4>Oh no! Something Went Wrong!</h4>
+        <p>Try again</p>
+        <br>
+      `)
+    $(".modal-body").html(scoreHTML)
+    $("#myModal").modal('show')
+  }
+}
+
+const onGetWarehouseSuccess = function (data) {
   $('.modal-body').html('')
   $("#myModalLabel").html('Success!')
-  console.log(data.items)
   // loop through API data
   const scoreHTMLHeaders = (`
   <h4>Warehouse Items</h4>
@@ -204,11 +202,9 @@ const onGetWarehouseSuccess = function(data) {
   })
 }
 
-const onGetInventorySuccess = function(data) {
+const onGetInventorySuccess = function (data) {
   $('.modal-body').html('')
   $("#myModalLabel").html('Success!')
-  console.log(data)
-
   const scoreHTMLHeaders = (`
   <h4>Inventory Items</h4>
   <div id="table">
@@ -229,7 +225,6 @@ const onGetInventorySuccess = function(data) {
   data.inventories.forEach(inventory => {
     // build HTML element with data
     const barcode = `${inventory._id}`
-    console.log(barcode)
     const scoreHTML = (`
     <div class="tr" data-id=${inventory._id}>
       <span class="td">${inventory._id}</span>
@@ -246,19 +241,14 @@ const onGetInventorySuccess = function(data) {
 
   for (let i = 0; i < data.inventories.length; i++) {
     const barcode = `b${data.inventories[i]._id}`
-    console.log(barcode)
-    console.log(data.inventories[i]._id)
-    console.log(data.inventories)
-    console.log(data.inventories[i])
-  JsBarcode(`#${barcode}`, `${barcode}`, {
-    width: 1,
-    height: 40,
-    margin: 8,
-    lineColor: "#333231",
-    font: "monospace",
-    fontSize: 16
-  })
-
+    JsBarcode(`#${barcode}`, `${barcode}`, {
+      width: 1,
+      height: 40,
+      margin: 8,
+      lineColor: "#333231",
+      font: "monospace",
+      fontSize: 16
+    })
   }
   $("#myModal").modal('show')
 }
@@ -267,7 +257,6 @@ const onSeeOneInventorySuccess = function(data) {
   $('.modal-body').html('')
   $("#myModalLabel").html('Success!')
   // data.inventory
-  console.log(data.inventory)
   const scoreHTML = (`
       <h4>Inventory Item</h4>
       <br>
