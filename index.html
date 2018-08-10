@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Inventory Management Solutions</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+
+      <div id="image">
+  <img src="public/Logo1.png" width="300">
+<br/>
+  <p id="header"><span class="header">I</span>nventory<span class="header">M</span>anagement<span class="header">S</span>olutions</p>
+</div>
+
+    <div class="centered">
+      <div class="form1">
+    <form id="register-form" class="register-form-class">
+    <legend>Register for IMS</legend>
+    <input id="email-register" name="credentials[email]" type="email" size="40" placeholder="your@team-ga.com" pattern=".+@team-ga.com" title="Please provide only a team-ga corporate email address">
+    <br />
+    <input id="pw-register" name="credentials[password]" type="password" placeholder="password">
+    <input id="pwconf-register" name="credentials[password_confirmation]" type="password" placeholder="confirm password">
+    <br />
+    <button id="register" type="submit">Register</button>
+  </form>
+  </div>
+
+  <div class="form2">
+    <form id="log-in-form" class="login-form-class">
+      <legend>Log in to IMS</legend>
+      <input id="email-login" name="credentials[email]" type="email" size="40" placeholder="your@team-ga.com" pattern=".+@team-ga.com" title="Please provide only a team-ga corporate email address">
+      <br />
+      <input id="pw-login" name="credentials[password]" type="password" placeholder="password">
+      <br />
+      <button id="login" type="submit">Log in</button>
+    </form>
+  </div>
+</div>
+
+
+  <div class="user-dash">
+    <div class="dashdiv">
+    <img src="public/Logo1.png" width="75">
+  </div>
+
+    <div class="dashdiv">
+    <form id="change-pw-form" class="form-inline">
+      <input id="pw-change" name="passwords[old]" type="password" placeholder="old password">
+      <input id="pw-change-conf" name="passwords[new]" type="password" placeholder="new password">
+      <button id="pw-change-submit" type="submit">Change Password</button>
+    </form>
+  </div>
+
+  <div class="dashdiv">
+  <form id="logout-form" class="logout-form-class">
+    <button id="logoutbutton" type="submit">Logout</button>
+  </form>
+</div>
+</div>
+
+<div class="flex-container">
+  <div class="flex-item">
+    <form id="index-items-form" class="index-items-form-class">
+    <legend>See Warehouse Items</legend>
+    <button id="index-items" type="submit">View All</button>
+  </form>
+  </div>
+
+  <div class="flex-item">
+  <form id="index-form" class="index-form-class">
+  <legend>See My Inventory</legend>
+  <button id="index" type="submit">View All</button>
+</form>
+</div>
+
+<!-- <div class="ims-actions"> -->
+  <div class="flex-item">
+    <form id="create-form" class="create-form-class">
+    <legend>Add Warehouse Item to Inventory</legend>
+    <input id="create-item" name="itemReference" type="text" placeholder="warehouse id">
+    <br />
+    <input id="onhand" name="onhand" type="text" placeholder="quantity in stock">
+    <input id="needed" name="needed" type="text" placeholder="quantity needed">
+    <br />
+    <button id="create" type="submit">Add</button>
+  </form>
+  </div>
+
+  <div class="flex-item">
+    <form id="see-one-form" class="see-one-form-class">
+    <legend>See Inventory Item</legend>
+    <input id="see-one-item" name="id" type="text" placeholder="inventory id">
+    <br />
+    <button id="see-one" type="submit">View</button>
+  </form>
+  </div>
+
+  <div class="flex-item">
+    <form id="update-form" class="update-form-class">
+    <legend>Update Inventory Item</legend>
+    <input id="update-item" name="id" type="text" placeholder="inventory id">
+    <br />
+    <input id="onhand-update" name="onhand" type="text" placeholder="quantity in stock">
+    <input id="needed-update" name="needed" type="text" placeholder="quantity needed">
+    <br />
+    <button id="update" type="submit">Update</button>
+  </form>
+  </div>
+
+  <div class="flex-item">
+    <form id="delete-form" class="delete-form-class">
+    <legend>Delete Inventory Item</legend>
+    <input id="delete-item" name="id" type="text" placeholder="inventory id">
+    <br />
+    <button id="delete" type="submit">Delete</button>
+  </form>
+  </div>
+
+
+<!-- </div> -->
+</div>
+
+<!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel"></h4>
+        </div>
+        <div class="modal-body">
+        </div>
+        <!-- <svg id="barcode"></svg>
+        <canvas id="canvas"></canvas> -->
+        <!-- <img id="barcode"/> -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- modal end -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel2"></h4>
+        </div>
+        <div class="modal-body2">
+        </div>
+        <!-- <img id="barcode"/> -->
+        <img id="barcode2"/>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- modal end -->
+
+    </body>
+</html>
