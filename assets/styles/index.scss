@@ -38,7 +38,7 @@ body {
 
 div#table {
   display: table;
-  width: 90%;
+  width: 100%;
   table-layout: fixed;
   // font-size: 1.3vmax;
   text-align: center;
@@ -55,13 +55,34 @@ span.th {
   display: table-cell;
   padding: 1%;
   // box-sizing: border-box;
+  // overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 span.td {
   border: 1px solid black;
   display: table-cell;
   padding: 0.5em;
+  // width: 10%;
   overflow-wrap: break-word;
+}
+
+#wide1,
+#wide2,
+#wide3 {
+  width: 20%;
+}
+
+#narrow1,
+#narrow2,
+#narrow3 {
+  min-width: 7%;
+  // overflow-wrap: normal;
+  word-wrap: break-word;
+}
+
+span#pic {
+  width: 20%;
 }
 
 button {
@@ -100,8 +121,8 @@ input[type=email] {
 }
 
 #image {
-  margin-top: 2%;
-  margin-bottom: 5%;
+  margin-top: 1%;
+  margin-bottom: 1%;
   display: block;
   text-align: center;
   margin-left: auto;
@@ -113,7 +134,7 @@ input[type=email] {
   background: #ffffff;
   box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
-  margin: 2%;
+  margin: 5px;
   padding: 1%;
 }
 
@@ -180,3 +201,53 @@ legend {
   background-color: #1c1c1b;
   padding: 2%;
 }
+
+/*
+	Max width before this PARTICULAR table gets nasty. This query will take effect for any screen smaller than 760px and also iPads specifically.
+	*/
+	// @media
+	//   only screen
+  //   and (max-width: 760px), (min-device-width: 768px)
+  //   and (max-device-width: 1024px)  {
+  //
+	// 	/* Force table to not be like tables anymore */
+	// 	div#table,
+  //   span.th,
+  //   span.td,
+  //   div.tr {
+	// 		display: block;
+	// 	}
+
+		/* Hide table headers (but not display: none;, for accessibility) */
+		// thead tr {
+		// 	position: absolute;
+		// 	top: -9999px;
+		// 	left: -9999px;
+		// }
+
+    // div.tr {
+    //   margin: 0 0 1rem 0;
+    // }
+    //
+    // // div.tr:nth-child(odd) {
+    // //   background: #ccc;
+    // // }
+    //
+		// span.td {
+		// 	/* Behave  like a "row" */
+		// 	border: none;
+		// 	border-bottom: 1px solid #eee;
+		// 	position: relative;
+		// 	padding-left: 50%;
+		// }
+
+		// span.td:before {
+		// 	/* Now like a table header */
+		// 	position: absolute;
+		// 	/* Top/left values mimic padding */
+		// 	top: 0;
+		// 	left: 6px;
+		// 	width: 45%;
+		// 	padding-right: 10px;
+		// 	white-space: nowrap;
+		// }
