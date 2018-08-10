@@ -76,7 +76,6 @@ const getInventoryItems = function() {
 }
 
 const seeOneInventoryItem = function (data) {
-  console.log(data)
   return $.ajax({
     url: config.apiUrl + '/inventories/' + data.id,
     method: 'GET',
@@ -87,7 +86,6 @@ const seeOneInventoryItem = function (data) {
 }
 
 const updateInventoryItem = function (data) {
-  console.log(data)
   return $.ajax({
     url: config.apiUrl + '/inventories/' + data.id,
     method: 'PATCH',
@@ -104,7 +102,6 @@ const updateInventoryItem = function (data) {
 }
 
 const deleteInventoryItem = function (data) {
-  console.log(data)
   return $.ajax({
     url: config.apiUrl + '/inventories/' + data.id,
     method: 'DELETE',

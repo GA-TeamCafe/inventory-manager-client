@@ -49,7 +49,7 @@ const seeWarehouseItems = function(event) {
   event.preventDefault()
   api.getWarehouseItems()
     .then(ui.onGetWarehouseSuccess)
-    .catch(ui.getInventoryError)
+    .catch(ui.onCreateInventoryError)
   $("#index-items-form")[0].reset()
 }
 
@@ -57,7 +57,7 @@ const seeInventoryItems = function(event) {
   event.preventDefault()
   api.getInventoryItems()
     .then(ui.onGetInventorySuccess)
-    .catch(ui.getInventoryError)
+    .catch(ui.onCreateInventoryError)
   $("#index-form")[0].reset()
 }
 
@@ -66,7 +66,7 @@ const seeOneInventoryItem = function(event) {
   const data = getFormFields(this)
   api.seeOneInventoryItem(data)
     .then(ui.onSeeOneInventorySuccess)
-    .catch(ui.updateInventoryError)
+    .catch(ui.onCreateInventoryError)
   $("#see-one-form")[0].reset()
 }
 
@@ -75,7 +75,7 @@ const updateInventoryItem = function(event) {
   const data = getFormFields(this)
   api.updateInventoryItem(data)
     .then(ui.onUpdateInventorySuccess)
-    .catch(ui.updateInventoryError)
+    .catch(ui.onCreateInventoryError)
   $("#update-form")[0].reset()
 }
 
@@ -84,7 +84,7 @@ const deleteInventoryItem = function(event) {
   const data = getFormFields(this)
   api.deleteInventoryItem(data)
     .then(ui.onDeleteInventorySuccess)
-    .catch(ui.updateInventoryError)
+    .catch(ui.onCreateInventoryError)
   $("#delete-form")[0].reset()
 }
 
