@@ -1,8 +1,9 @@
 const store = require('./store.js')
 const JsBarcode = require('jsbarcode')
 
-const onLoginSuccess = function(data) {
+const onLoginSuccess = function (data) {
   $('.modal-body').html('')
+  $(".modal-dialog").css("width", "40%")
   $("#myModalLabel").html('Success!')
   const scoreHTML = (`
       <h4>User Logged In</h4>
@@ -19,8 +20,9 @@ const onLoginSuccess = function(data) {
   store.user = data.user
 }
 
-const loginError = function(error) {
+const loginError = function (error) {
   $('.modal-body').html('')
+  $(".modal-dialog").css("width", "40%")
   $("#myModalLabel").html('Error')
   const scoreHTML = (`
     <h4>Oh no! Something Went Wrong!</h4>
@@ -31,8 +33,9 @@ const loginError = function(error) {
   $("#myModal").modal('show')
 }
 
-const onRegisterSuccess = function(data) {
+const onRegisterSuccess = function (data) {
   $('.modal-body').html('')
+  $(".modal-dialog").css("width", "40%")
   $("#myModalLabel").html('Success!')
   const scoreHTML = (`
       <h4>User Registered!</h4>
@@ -44,9 +47,10 @@ const onRegisterSuccess = function(data) {
   $(".form1").css("display", "none")
 }
 
-const registerError = function(error) {
+const registerError = function (error) {
   if (error) {
     $('.modal-body').html('')
+    $(".modal-dialog").css("width", "40%")
     $("#myModalLabel").html('Error')
     const scoreHTML = (`
         <h4>Oh no! Something Went Wrong!</h4>
@@ -58,8 +62,9 @@ const registerError = function(error) {
   }
 }
 
-const onPwSuccess = function() {
+const onPwSuccess = function () {
   $('.modal-body').html('')
+  $(".modal-dialog").css("width", "40%")
   $("#myModalLabel").html('Success!')
   const scoreHTML = (`
       <h4>User Changed Password</h4>
@@ -69,8 +74,9 @@ const onPwSuccess = function() {
   $("#myModal").modal('show')
 }
 
-const pwError = function(error) {
+const pwError = function (error) {
   if (error) {
+    $(".modal-dialog").css("width", "40%")
     $('.modal-body').html('')
     $("#myModalLabel").html('Error')
     const scoreHTML = (`
@@ -83,8 +89,9 @@ const pwError = function(error) {
   }
 }
 
-const onLogoutSuccess = function() {
+const onLogoutSuccess = function () {
   $('.modal-body').html('')
+  $(".modal-dialog").css("width", "40%")
   $("#myModalLabel").html('Success!')
   const message = (`
   <h4>User Logged out</h4>
@@ -100,8 +107,9 @@ const onLogoutSuccess = function() {
   $("#image").css("display", "block")
 }
 
-const logoutError = function(error) {
+const logoutError = function (error) {
   if (error) {
+    $(".modal-dialog").css("width", "40%")
     $('.modal-body').html('')
     $("#myModalLabel").html('Error')
     const scoreHTML = (`
@@ -116,6 +124,8 @@ const logoutError = function(error) {
 
 const onCreateInventoryItemSuccess = function (data) {
   $('.modal-body2').html('')
+  $(".modal-dialog").css("width", "40%")
+
   JsBarcode("#barcode2", `${data.inventory._id}`, {
     width: 1,
     height: 40,
@@ -136,6 +146,7 @@ const onCreateInventoryItemSuccess = function (data) {
 const onCreateInventoryError = function (error) {
   if (error) {
     $('.modal-body').html('')
+    $(".modal-dialog").css("width", "40%")
     $("#myModalLabel").html('Error')
     const scoreHTML = (`
         <h4>Oh no! Something Went Wrong!</h4>
@@ -150,6 +161,7 @@ const onCreateInventoryError = function (error) {
 const getInventoryError = function (error) {
   if (error) {
     $('.modal-body').html('')
+    $(".modal-dialog").css("width", "40%")
     $("#myModalLabel").html('Error')
     const scoreHTML = (`
         <h4>Oh no! Something Went Wrong!</h4>
@@ -163,6 +175,7 @@ const getInventoryError = function (error) {
 
 const onGetWarehouseSuccess = function (data) {
   $('.modal-body').html('')
+  $(".modal-dialog").css("width", "90%")
   $("#myModalLabel").html('Success!')
   // loop through API data
   const scoreHTMLHeaders = (`
@@ -204,13 +217,14 @@ const onGetWarehouseSuccess = function (data) {
 
 const onGetInventorySuccess = function (data) {
   $('.modal-body').html('')
+  $(".modal-dialog").css("width", "90%")
   $("#myModalLabel").html('Success!')
   const scoreHTMLHeaders = (`
   <h4>Inventory Items</h4>
   <div id="table">
     <div class="tr">
-      <span class="th" id="wide1">Inventory Item ID</span>
-      <span class="th" id="wide2">Product Manufacturer ID</span>
+      <span class="th" id="wide1">Inventory ID</span>
+      <span class="th" id="wide2">Warehouse ID</span>
       <span class="th" id="wide3">Product Name</span>
       <span class="th" id="narrow1">$</span>
       <span class="th" id="narrow2">OH</span>
@@ -255,6 +269,7 @@ const onGetInventorySuccess = function (data) {
 
 const onSeeOneInventorySuccess = function(data) {
   $('.modal-body').html('')
+  $(".modal-dialog").css("width", "40%")
   $("#myModalLabel").html('Success!')
   // data.inventory
   const scoreHTML = (`
@@ -274,6 +289,7 @@ const onSeeOneInventorySuccess = function(data) {
 
 const onUpdateInventorySuccess = function() {
   $('.modal-body').html('')
+  $(".modal-dialog").css("width", "40%")
   $("#myModalLabel").html('Success!')
   const scoreHTML = (`
     <h4>Updated Inventory Item!</h4>
@@ -284,6 +300,7 @@ const onUpdateInventorySuccess = function() {
 
 const onDeleteInventorySuccess = function() {
   $('.modal-body').html('')
+  $(".modal-dialog").css("width", "40%")
   $("#myModalLabel").html('Success!')
   const scoreHTML = (`
       <h4>Item Deleted Successfully!</h4>
