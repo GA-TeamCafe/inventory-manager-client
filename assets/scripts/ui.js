@@ -213,13 +213,13 @@ const onGetInventorySuccess = function(data) {
   <h4>Inventory Items</h4>
   <div id="table">
     <div class="tr">
-      <span class="th">Inventory Item ID</span>
-      <span class="th">Product Manufacturer ID</span>
-      <span class="th">Product Name</span>
-      <span class="th">Product Price</span>
-      <span class="th">Quantity on Hand</span>
-      <span class="th">Quantity Needed</span>
-      <span class="th">Barcode</span>
+      <span class="th" id="wide1">Inventory Item ID</span>
+      <span class="th" id="wide2">Product Manufacturer ID</span>
+      <span class="th" id="wide3">Product Name</span>
+      <span class="th" id="narrow1">$</span>
+      <span class="th" id="narrow2">OH</span>
+      <span class="th" id="narrow3">QN</span>
+      <span class="th" id="pic">Barcode</span>
     </div>
   </div>
   `)
@@ -238,7 +238,7 @@ const onGetInventorySuccess = function(data) {
       <span class="td">$${inventory.itemReference.price}</span>
       <span class="td">${inventory.onhand}</span>
       <span class="td">${inventory.needed}</span>
-      <span class="td"><img id="b${barcode}"></span>
+      <span class="td"><img id="b${barcode}" width="100%"></span>
     </div>
     `)
     $("#table").append(scoreHTML)
