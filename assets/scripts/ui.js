@@ -1,4 +1,5 @@
 const store = require('./store.js')
+const JsBarcode = require('jsbarcode')
 
 const onLoginSuccess = function(data) {
   $('.modal-body').html('')
@@ -113,17 +114,25 @@ const logoutError = function(error) {
   }
 }
 
-const onCreateInventoryItemSuccess = function(data) {
-  $('.modal-body').html('')
-  $("#myModalLabel").html('Success!')
-  console.log(data)
-  const scoreHTML = (`
-      <h4>Created Inventory Item</h4>
-      <br>
-    `)
-  $(".modal-body").html(scoreHTML)
-  $("#myModal").modal('show')
-}
+	const onCreateInventoryItemSuccess = function(data) {
+    $('.modal-body2').html('')
+    JsBarcode("#barcode2", `${data.inventory._id}`, {
+        width: 1,
+        height: 40,
+        margin: 8,
+        lineColor: "#333231",
+        font: "monospace",
+        fontSize: 16
+    })
+    $("#myModalLabel2").html('Success!')
+    console.log(data)
+    const scoreHTML = (`
+        <h4>Created Inventory Entry</h4>
+        <p>Inventory Reference Code Is:</p>
+      `)
+    $(".modal-body2").html(scoreHTML)
+    $("#myModal2").modal('show')
+  }
 
 const onCreateInventoryError = function(error) {
   if (error) {
@@ -159,6 +168,7 @@ const onGetWarehouseSuccess = function(data) {
   console.log(data.items)
   // loop through API data
   const scoreHTMLHeaders = (`
+  <h4>Warehouse Items</h4>
   <div id="table">
     <div class="tr">
       <span class="th">ID</span>
@@ -198,20 +208,58 @@ const onGetInventorySuccess = function(data) {
   $('.modal-body').html('')
   $("#myModalLabel").html('Success!')
   console.log(data)
+
+  const scoreHTMLHeaders = (`
+  <h4>Inventory Items</h4>
+  <div id="table">
+    <div class="tr">
+      <span class="th">Inventory Item ID</span>
+      <span class="th">Product Manufacturer ID</span>
+      <span class="th">Product Name</span>
+      <span class="th">Product Price</span>
+      <span class="th">Quantity on Hand</span>
+      <span class="th">Quantity Needed</span>
+      <span class="th">Barcode</span>
+    </div>
+  </div>
+  `)
+
+  $(".modal-body").append(scoreHTMLHeaders)
   // loop through API data
   data.inventories.forEach(inventory => {
     // build HTML element with data
+    const barcode = `${inventory._id}`
+    console.log(barcode)
     const scoreHTML = (`
-      <p>Inventory Item ID: ${inventory._id}</p>
-      <p>Product Manufacturer ID: ${inventory.itemReference._id}</p>
-      <p>Product Name: ${inventory.itemReference.name}</p>
-      <p>Product Price: $${inventory.itemReference.price}</p>
-      <p>Quantity on Hand: ${inventory.onhand}</p>
-      <p>Quantity Needed: ${inventory.needed}</p>
-      <br>
+    <div class="tr" data-id=${inventory._id}>
+      <span class="td">${inventory._id}</span>
+      <span class="td">${inventory.itemReference._id}</span>
+      <span class="td">${inventory.itemReference.name}</span>
+      <span class="td">$${inventory.itemReference.price}</span>
+      <span class="td">${inventory.onhand}</span>
+      <span class="td">${inventory.needed}</span>
+      <span class="td"><img id="b${barcode}"></span>
+    </div>
     `)
-    $(".modal-body").append(scoreHTML)
+    $("#table").append(scoreHTML)
   })
+
+  for (let i = 0; i < data.inventories.length; i++) {
+    const barcode = `b${data.inventories[i]._id}`
+    console.log(barcode)
+    console.log(data.inventories[i]._id)
+    console.log(data.inventories)
+    console.log(data.inventories[i])
+  JsBarcode(`#${barcode}`, `${barcode}`, {
+    width: 1,
+    height: 40,
+    margin: 8,
+    lineColor: "#333231",
+    font: "monospace",
+    fontSize: 16
+  })
+
+  }
   $("#myModal").modal('show')
 }
 

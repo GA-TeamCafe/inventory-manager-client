@@ -6,6 +6,23 @@ body {
     background: linear-gradient(90deg, #e0e1dc 50%, #f7f960 50%);
 }
 
+
+#header {
+  font-size: 1.8em;
+  font-weight: lighter;
+  background: #ffffff;
+  margin-top: 0.5%;
+}
+
+// #barcode {
+//   display: initial;
+// }
+
+.header {
+ font-weight: 400;
+ font-size: 2em;
+}
+
 // body,
 // html {
 //   height: 100%;
@@ -15,12 +32,16 @@ body {
 //   background-position: center;
 // }
 
+.modal-dialog {
+  width: 100%;
+}
+
 div#table {
   display: table;
-  width: 100%;
-  // table-layout: fixed;
-  font-size: 1.25vw;
-  text-align: center
+  width: 90%;
+  table-layout: fixed;
+  // font-size: 1.3vmax;
+  text-align: center;
 }
 
 div.tr {
@@ -32,12 +53,15 @@ span.th {
   font-weight: bold;
   border: 1px solid black;
   display: table-cell;
+  padding: 1%;
+  // box-sizing: border-box;
 }
 
 span.td {
   border: 1px solid black;
   display: table-cell;
   padding: 0.5em;
+  overflow-wrap: break-word;
 }
 
 button {
